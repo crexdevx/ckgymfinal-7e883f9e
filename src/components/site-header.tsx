@@ -71,7 +71,7 @@ export function SiteHeader() {
         >
           <div className="flex items-center justify-between">
             <img
-              src={logoAsset.url}
+              src={logoImage}
               alt="CK Gym logo"
               width={160}
               height={160}
