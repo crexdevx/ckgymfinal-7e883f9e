@@ -317,7 +317,7 @@ function Index() {
             <div className="relative order-2 md:order-1">
               <div className="absolute -inset-3 -z-10 rounded-lg bg-gradient-to-tr from-primary/25 to-transparent blur-xl" />
               <img
-                src={founderAsset.url}
+                src={founderImage}
                 alt="Ajoy Batman, founder and owner of CK Gym, Nalbari"
                 width={1000}
                 height={1600}
