@@ -428,7 +428,7 @@ function Index() {
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-5 py-10 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
             <img
-              src={logoAsset.url}
+              src={logoImage}
               alt="CK Gym logo"
               width={120}
               height={120}
