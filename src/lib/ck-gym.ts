@@ -13,14 +13,25 @@ export function whatsappLink(message: string) {
   return `https://wa.me/${GYM.whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
 
-/** Ensures the WhatsApp link opens even inside sandboxed/embedded frames. */
+/** Opens WhatsApp in a new tab; never navigates an embedded preview frame. */
 export function openWhatsApp(url: string) {
   return (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const win = window.open(url, "_blank", "noopener,noreferrer");
-    if (!win) window.location.href = url;
+    if (win) return;
+    // Popup blocked: navigate the top-level window instead of the iframe.
+    try {
+      if (window.top && window.top !== window.self) {
+        window.top.location.href = url;
+        return;
+      }
+    } catch {
+      /* cross-origin top: fall through */
+    }
+    window.location.href = url;
   };
 }
+
 
 export const WA_JOIN = whatsappLink(
   "Hello CK Gym, I am interested in joining the gym. Please share the membership details.",
