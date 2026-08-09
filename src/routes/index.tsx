@@ -14,8 +14,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import heroImage from "@/assets/hero-greek-god-video.jpg";
-import logoAsset from "@/assets/ck-gym-logo.png.asset.json";
-import founderAsset from "@/assets/ck-gym-founder.png.asset.json";
+import founderImage from "@/assets/ck-gym-founder.png";
 import { Button } from "@/components/ui/button";
 import { SiteHeader } from "@/components/site-header";
 import { Gallery } from "@/components/gallery";
