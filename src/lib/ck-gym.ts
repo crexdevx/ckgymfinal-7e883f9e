@@ -10,7 +10,7 @@ export const GYM = {
 };
 
 export function whatsappLink(message: string) {
-  return `https://api.whatsapp.com/send?phone=${GYM.whatsappNumber}&text=${encodeURIComponent(message)}`;
+  return `https://wa.me/${GYM.whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
 
 /** Ensures the WhatsApp link opens even inside sandboxed/embedded frames. */
