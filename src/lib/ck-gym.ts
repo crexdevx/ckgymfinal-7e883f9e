@@ -9,7 +9,7 @@ export const GYM = {
 };
 
 export function whatsappLink(message: string) {
-  return `https://wa.me/${GYM.whatsappNumber}?text=${encodeURIComponent(message)}`;
+  return `whatsapp://send?phone=${GYM.whatsappNumber}&text=${encodeURIComponent(message)}`;
 }
 
 
