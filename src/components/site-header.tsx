@@ -3,7 +3,7 @@ import { Menu, X } from "lucide-react";
 import logoAsset from "@/assets/ck-gym-logo.jpg.asset.json";
 const logoImage = logoAsset.url;
 import { Button } from "@/components/ui/button";
-import { NAV_LINKS, WA_JOIN, openWhatsApp } from "@/lib/ck-gym";
+import { NAV_LINKS, WA_JOIN } from "@/lib/ck-gym";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -38,7 +38,7 @@ export function SiteHeader() {
 
         <div className="flex items-center justify-end gap-2">
           <Button variant="hero" size="sm" asChild>
-            <a href={WA_JOIN} target="_blank" rel="noopener noreferrer" onClick={openWhatsApp(WA_JOIN)}>
+            <a href={WA_JOIN} target="_blank" rel="noopener noreferrer">
               Join now
             </a>
           </Button>
@@ -102,7 +102,7 @@ export function SiteHeader() {
           </nav>
 
           <Button variant="hero" size="xl" className="mt-6 w-full" asChild>
-            <a href={WA_JOIN} target="_blank" rel="noopener noreferrer" onClick={(e) => { setOpen(false); openWhatsApp(WA_JOIN)(e); }}>
+            <a href={WA_JOIN} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
               Join now
             </a>
           </Button>
