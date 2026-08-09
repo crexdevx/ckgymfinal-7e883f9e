@@ -14,8 +14,10 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import heroImage from "@/assets/hero-greek-god-video.jpg";
-import logoImage from "@/assets/ck-gym-logo.png";
-import founderImage from "@/assets/ck-gym-founder.png";
+import logoAsset from "@/assets/ck-gym-logo.jpg.asset.json";
+const logoImage = logoAsset.url;
+import founderAsset from "@/assets/ck-gym-founder.jpg.asset.json";
+const founderImage = founderAsset.url;
 import { Button } from "@/components/ui/button";
 import { SiteHeader } from "@/components/site-header";
 import { Gallery } from "@/components/gallery";
@@ -287,11 +289,11 @@ function Index() {
             <div className="min-w-0 order-1 md:order-2">
               <p className="eyebrow">About CK Gym · Founder &amp; Gym Owner</p>
               <h2 className="mt-4 font-display text-4xl sm:text-5xl">
-                Ajoy <span className="text-gradient-gold">Batman</span>
+                Ajoy <span className="text-gradient-gold">Barman</span>
               </h2>
               <p className="mt-6 text-sm leading-relaxed text-muted-foreground sm:text-base">
                 Built with a passion for fitness and a genuine desire to help people become
-                stronger, CK Gym is more than just a place to train. Ajoy Batman, the founder, believes in
+                stronger, CK Gym is more than just a place to train. Ajoy Barman, the founder, believes in
                 staying approachable, treating every member with respect, and creating an
                 environment where beginners and experienced athletes can train together.
               </p>
@@ -318,7 +320,7 @@ function Index() {
               <div className="absolute -inset-3 -z-10 rounded-lg bg-gradient-to-tr from-primary/25 to-transparent blur-xl" />
               <img
                 src={founderImage}
-                alt="Ajoy Batman, founder and owner of CK Gym, Nalbari"
+                alt="Ajoy Barman, founder and owner of CK Gym, Nalbari"
                 width={1000}
                 height={1600}
                 loading="lazy"
