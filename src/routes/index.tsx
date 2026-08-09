@@ -21,7 +21,7 @@ const founderImage = founderAsset.url;
 import { Button } from "@/components/ui/button";
 import { SiteHeader } from "@/components/site-header";
 import { Gallery } from "@/components/gallery";
-import { GYM, WA_JOIN, WA_MONTHLY, WA_SIX_MONTH, openWhatsApp } from "@/lib/ck-gym";
+import { GYM, WA_JOIN, WA_MONTHLY, WA_SIX_MONTH } from "@/lib/ck-gym";
 
 const programs = [
   {
@@ -160,7 +160,7 @@ function Index() {
               </p>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap md:mt-8">
                 <Button variant="hero" size="xl" asChild className="h-12 px-7 text-xs md:h-14 md:px-9 md:text-sm">
-                  <a href={WA_JOIN} target="_blank" rel="noopener noreferrer" onClick={openWhatsApp(WA_JOIN)}>
+                  <a href={WA_JOIN} target="_blank" rel="noopener noreferrer">
                     Start training <ArrowRight />
                   </a>
                 </Button>
@@ -244,7 +244,7 @@ function Index() {
                   </li>
                 </ul>
                 <Button variant="heroOutline" size="xl" className="mt-8 w-full" asChild>
-                  <a href={WA_MONTHLY} target="_blank" rel="noopener noreferrer" onClick={openWhatsApp(WA_MONTHLY)}>
+                  <a href={WA_MONTHLY} target="_blank" rel="noopener noreferrer">
                     Join now
                   </a>
                 </Button>
@@ -272,7 +272,7 @@ function Index() {
                   </li>
                 </ul>
                 <Button variant="hero" size="xl" className="mt-8 w-full" asChild>
-                  <a href={WA_SIX_MONTH} target="_blank" rel="noopener noreferrer" onClick={openWhatsApp(WA_SIX_MONTH)}>
+                  <a href={WA_SIX_MONTH} target="_blank" rel="noopener noreferrer">
                     Join now
                   </a>
                 </Button>
@@ -417,7 +417,7 @@ function Index() {
                 membership details.
               </p>
               <Button variant="hero" size="sm" className="mt-5" asChild>
-                <a href={WA_JOIN} target="_blank" rel="noopener noreferrer" onClick={openWhatsApp(WA_JOIN)}>
+                <a href={WA_JOIN} target="_blank" rel="noopener noreferrer">
                   Join now
                 </a>
               </Button>
