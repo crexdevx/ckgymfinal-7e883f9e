@@ -19,7 +19,7 @@ export function SiteHeader() {
       <div className="mx-auto grid h-16 max-w-6xl grid-cols-[auto_1fr_auto] items-center gap-3 px-4 sm:px-5">
         <a href="#top" aria-label="CK Gym — home" className="flex min-w-0 items-center">
           <img
-            src={logoAsset.url}
+            src={logoImage}
             alt="CK Gym Strength & Fitness logo"
             width={160}
             height={160}
