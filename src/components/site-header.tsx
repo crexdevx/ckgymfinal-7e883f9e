@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import logoAsset from "@/assets/ck-gym-logo.jpg.asset.json";
-const logoImage = logoAsset.url;
+import logoImage from "@/assets/ck-gym-logo.jpg";
 import { Button } from "@/components/ui/button";
 import { NAV_LINKS, WA_JOIN } from "@/lib/ck-gym";
 
