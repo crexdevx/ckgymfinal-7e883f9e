@@ -1,21 +1,70 @@
-import { useEffect, useState } from "react";
-import { X, ImageIcon } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { X } from "lucide-react";
 
-/**
- * Gallery — drop real gym photos into this array.
- * Each entry: { src: "<image url or import>", alt: "..." }
- * Leave `src` empty to render a placeholder tile.
- */
-export type GalleryItem = { src?: string; alt: string; tall?: boolean };
+import gym1 from "@/assets/gallery/gym-1.jpg";
+import gym2 from "@/assets/gallery/gym-2.webp";
+import gym3 from "@/assets/gallery/gym-3.webp";
+import gym4 from "@/assets/gallery/gym-4.webp";
+import gym5 from "@/assets/gallery/gym-5.webp";
+import gym6 from "@/assets/gallery/gym-6.webp";
+import gym7 from "@/assets/gallery/gym-7.webp";
+import gym8 from "@/assets/gallery/gym-8.webp";
+import gym9 from "@/assets/gallery/gym-9.jpg";
+
+export type GalleryItem = { src: string; alt: string; tall?: boolean };
 
 const items: GalleryItem[] = [
-  { alt: "CK Gym training floor", tall: true },
-  { alt: "Free weights area at CK Gym" },
-  { alt: "Cardio area at CK Gym" },
-  { alt: "Members training at CK Gym" },
-  { alt: "Machines at CK Gym", tall: true },
-  { alt: "CK Gym interior" },
+  { src: gym1, alt: "Spin bikes lined up by the windows at CK Gym Nalbari" },
+  { src: gym2, alt: "Dumbbell rack with rubber dumbbells at CK Gym", tall: true },
+  { src: gym3, alt: "T-Rex 2.0 treadmills in the cardio area at CK Gym" },
+  { src: gym4, alt: "Main training floor with benches and machines at CK Gym", tall: true },
+  { src: gym5, alt: "Plate-loaded chest press machines at CK Gym" },
+  { src: gym6, alt: "Leg press and squat racks at CK Gym" },
+  { src: gym7, alt: "Cable crossover and functional trainer at CK Gym" },
+  { src: gym8, alt: "Smith machine and power rack at CK Gym", tall: true },
+  { src: gym9, alt: "Punching bag and cardio machines at CK Gym" },
 ];
+
+function RevealTile({ item, index, onOpen }: { item: GalleryItem; index: number; onOpen: () => void }) {
+  const ref = useRef<HTMLButtonElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -8% 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  return (
+    <button
+      ref={ref}
+      type="button"
+      onClick={onOpen}
+      style={{ transitionDelay: `${(index % 3) * 90}ms` }}
+      className={`group relative overflow-hidden rounded-lg border border-border bg-card transition-all duration-700 ease-out hover:border-primary/60 ${
+        item.tall ? "row-span-2 aspect-[3/4] md:aspect-[3/5]" : "aspect-[4/3]"
+      } ${visible ? "translate-y-0 opacity-100 blur-0" : "translate-y-8 opacity-0 blur-[2px]"}`}
+    >
+      <img
+        src={item.src}
+        alt={item.alt}
+        loading="lazy"
+        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+      />
+      <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/70 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+    </button>
+  );
+}
 
 export function Gallery() {
   const [active, setActive] = useState<GalleryItem | null>(null);
@@ -40,35 +89,14 @@ export function Gallery() {
 
         <div className="mt-12 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3">
           {items.map((item, i) => (
-            <button
-              key={i}
-              type="button"
-              onClick={() => item.src && setActive(item)}
-              className={`group relative overflow-hidden rounded-lg border border-border bg-card transition-colors hover:border-primary/60 ${
-                item.tall ? "row-span-2 aspect-[3/4] md:aspect-[3/5]" : "aspect-[4/3]"
-              }`}
-            >
-              {item.src ? (
-                <img
-                  src={item.src}
-                  alt={item.alt}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              ) : (
-                <span className="absolute inset-0 grid place-items-center gap-2 text-muted-foreground">
-                  <ImageIcon className="mx-auto size-6 text-primary/60" />
-                </span>
-              )}
-              <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/70 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-            </button>
+            <RevealTile key={item.src} item={item} index={i} onOpen={() => setActive(item)} />
           ))}
         </div>
       </div>
 
-      {active?.src ? (
+      {active ? (
         <div
-          className="fixed inset-0 z-[60] grid place-items-center bg-background/95 p-5"
+          className="fixed inset-0 z-[60] grid animate-fade-in place-items-center bg-background/95 p-5"
           onClick={() => setActive(null)}
         >
           <button
