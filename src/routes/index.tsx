@@ -145,28 +145,32 @@ function Index() {
           <div className="absolute inset-0 -z-10 hidden bg-hero-scrim md:block" />
           <div className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-t from-background to-transparent" />
 
-          <div className="mx-auto flex h-full w-full max-w-6xl flex-col justify-start px-5 pb-10 pt-20 md:justify-center md:pb-24 md:pt-16">
-            <div className="max-w-full md:max-w-2xl">
-              <p className="eyebrow">Nalbari · Sondha · Assam</p>
-              <h1 className="mt-2 font-display text-[clamp(2.25rem,10.5vw,3.75rem)] leading-[0.9] tracking-[0.005em] sm:mt-3 sm:text-6xl md:mt-5 md:text-[clamp(4rem,7vw,6.5rem)]">
-                <span className="block text-foreground">Build strength.</span>
-                <span className="block text-gradient-gold">Build yourself.</span>
-              </h1>
-              <p className="mt-8 max-w-xl text-sm leading-relaxed text-muted-foreground sm:mt-5 md:mt-6 md:text-lg">
-                CK Gym is Nalbari's home for serious training — heavy weights, honest coaching and a
-                floor where beginners and athletes push side by side.
-              </p>
-              <div className="mt-10 flex flex-col gap-3 sm:mt-6 sm:flex-row sm:flex-wrap md:mt-8">
-                <Button variant="hero" size="xl" asChild className="h-12 px-7 text-xs md:h-14 md:px-9 md:text-sm">
-                  <a href={WA_JOIN} target="_blank" rel="noopener noreferrer">
-                    Start training <ArrowRight />
-                  </a>
-                </Button>
-                <Button variant="heroOutline" size="xl" asChild className="h-12 px-7 text-xs md:h-14 md:px-9 md:text-sm">
-                  <a href={GYM.mapUrl} target="_blank" rel="noreferrer">
-                    <MapPin /> Directions
-                  </a>
-                </Button>
+          <div className="mx-auto flex h-full w-full max-w-6xl flex-col justify-start px-5 pb-10 pt-16 md:justify-center md:pb-24 md:pt-16">
+            <div className="flex h-full max-w-full flex-col justify-between sm:block sm:h-auto md:max-w-2xl">
+              <div>
+                <p className="eyebrow">Nalbari · Sondha · Assam</p>
+                <h1 className="mt-2 font-display text-[clamp(2.25rem,10.5vw,3.75rem)] leading-[0.9] tracking-[0.005em] sm:mt-3 sm:text-6xl md:mt-5 md:text-[clamp(4rem,7vw,6.5rem)]">
+                  <span className="block text-foreground">Build strength.</span>
+                  <span className="block text-gradient-gold">Build yourself.</span>
+                </h1>
+              </div>
+              <div>
+                <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base md:mt-6 md:text-lg">
+                  CK Gym is Nalbari's home for serious training — heavy weights, honest coaching and a
+                  floor where beginners and athletes push side by side.
+                </p>
+                <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap md:mt-8">
+                  <Button variant="hero" size="xl" asChild className="h-12 px-7 text-xs md:h-14 md:px-9 md:text-sm">
+                    <a href={WA_JOIN} target="_blank" rel="noopener noreferrer">
+                      Start training <ArrowRight />
+                    </a>
+                  </Button>
+                  <Button variant="heroOutline" size="xl" asChild className="h-12 px-7 text-xs md:h-14 md:px-9 md:text-sm">
+                    <a href={GYM.mapUrl} target="_blank" rel="noreferrer">
+                      <MapPin /> Directions
+                    </a>
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
