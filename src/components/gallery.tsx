@@ -34,7 +34,7 @@ function RevealTile({ item, index, onOpen }: { item: GalleryItem; index: number;
     if (!el) return;
     const io = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry?.isIntersecting) {
           setVisible(true);
           io.disconnect();
         }
