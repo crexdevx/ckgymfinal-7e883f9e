@@ -20,6 +20,7 @@ import { Button } from "@/components/ui/button";
 import { SiteHeader } from "@/components/site-header";
 import { Gallery } from "@/components/gallery";
 import { GYM, WA_JOIN, WA_MONTHLY, WA_SIX_MONTH } from "@/lib/ck-gym";
+import { OG_IMAGE, siteUrl } from "@/lib/site-url";
 
 const programs = [
   {
@@ -53,10 +54,16 @@ const hours = [
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "HealthClub",
+  "@id": siteUrl("/#ckgym"),
   name: "CK Gym",
   alternateName: ["CK Gym Nalbari", "CKgym"],
   description:
-    "CK Gym is a local gym and fitness centre in Sondha, Nalbari, Assam offering strength training, weight loss, cardio and personal coaching.",
+    "CK Gym is a local gym and fitness centre in Sondha, Nalbari, Assam offering strength training, bodybuilding, weight loss, cardio and personal coaching.",
+  url: siteUrl("/"),
+  image: OG_IMAGE,
+  logo: siteUrl("/favicon.png"),
+  telephone: GYM.phoneDisplay,
+  hasMap: GYM.mapUrl,
   address: {
     "@type": "PostalAddress",
     streetAddress: "FF3V+RC6, Sondha",
@@ -67,6 +74,7 @@ const jsonLd = {
   },
   areaServed: ["Nalbari", "Sondha", "Assam"],
   priceRange: "₹₹",
+  currenciesAccepted: "INR",
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
@@ -87,37 +95,63 @@ const jsonLd = {
       closes: "11:00",
     },
   ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "CK Gym memberships",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        name: "Monthly membership",
+        price: "500",
+        priceCurrency: "INR",
+        description: "₹500 per month. One-time admission fee of ₹1,000.",
+      },
+      {
+        "@type": "Offer",
+        name: "6 month membership",
+        price: "3000",
+        priceCurrency: "INR",
+        description: "₹3,000 for 6 months.",
+      },
+    ],
+  },
+  makesOffer: programs.map(({ title, body }) => ({
+    "@type": "Offer",
+    itemOffered: { "@type": "Service", name: title, description: body },
+  })),
 };
+
+const TITLE = "CK Gym | Best Gym in Nalbari, Assam";
+const DESCRIPTION =
+  "CK Gym is a gym and fitness centre in Sondha, Nalbari, Assam — strength training, bodybuilding, fat loss and cardio with coaching for beginners and athletes.";
 
 export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "CK Gym Nalbari | Best Gym & Fitness Centre in Nalbari, Assam" },
-      {
-        name: "description",
-        content:
-          "CK Gym in Sondha, Nalbari (Assam) — the best gym near you for strength training, weight loss and personal coaching. Visit us today.",
-      },
-      { name: "keywords", content: "CK Gym, CK Gym Nalbari, best gym Nalbari, gym in Nalbari Assam" },
-      { property: "og:title", content: "CK Gym Nalbari | Best Gym in Nalbari, Assam" },
-      {
-        property: "og:description",
-        content:
-          "Strength, conditioning and coaching at CK Gym, Sondha, Nalbari, Assam.",
-      },
+      { title: TITLE },
+      { name: "description", content: DESCRIPTION },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
+      { name: "geo.region", content: "IN-AS" },
+      { name: "geo.placename", content: "Nalbari, Assam" },
+      { property: "og:site_name", content: "CK Gym Nalbari" },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
-      { name: "twitter:title", content: "CK Gym Nalbari | Best Gym in Nalbari, Assam" },
-      {
-        name: "twitter:description",
-        content: "Train at CK Gym in Sondha, Nalbari, Assam. Strength, fat loss and coaching.",
-      },
+      { property: "og:locale", content: "en_IN" },
+      { property: "og:url", content: siteUrl("/") },
+      { property: "og:image", content: OG_IMAGE },
+      { property: "og:image:alt", content: "CK Gym, Nalbari, Assam" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESCRIPTION },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: siteUrl("/") }],
     scripts: [{ type: "application/ld+json", children: JSON.stringify(jsonLd) }],
   }),
 });
+
 
 function Index() {
   return (
@@ -151,8 +185,8 @@ function Index() {
               <div>
                 <p className="eyebrow">Nalbari · Sondha · Assam</p>
                 <h1 className="mt-2 font-display text-[clamp(2.25rem,10.5vw,3.75rem)] leading-[0.9] tracking-[0.005em] sm:mt-3 sm:text-6xl md:mt-5 md:text-[clamp(4rem,7vw,6.5rem)]">
-                  <span className="block text-foreground">Build strength.</span>
-                  <span className="block text-gradient-gold">Build yourself.</span>
+                  <span className="block text-foreground">Build strength at</span>
+                  <span className="block text-gradient-gold">CK Gym Nalbari</span>
                 </h1>
               </div>
               <div>
