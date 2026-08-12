@@ -20,6 +20,7 @@ import { Button } from "@/components/ui/button";
 import { SiteHeader } from "@/components/site-header";
 import { Gallery } from "@/components/gallery";
 import { GYM, WA_JOIN, WA_MONTHLY, WA_SIX_MONTH } from "@/lib/ck-gym";
+import { OG_IMAGE, siteUrl } from "@/lib/site-url";
 
 const programs = [
   {
