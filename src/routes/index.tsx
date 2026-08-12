@@ -185,8 +185,8 @@ function Index() {
               <div>
                 <p className="eyebrow">Nalbari · Sondha · Assam</p>
                 <h1 className="mt-2 font-display text-[clamp(2.25rem,10.5vw,3.75rem)] leading-[0.9] tracking-[0.005em] sm:mt-3 sm:text-6xl md:mt-5 md:text-[clamp(4rem,7vw,6.5rem)]">
-                  <span className="block text-foreground">Build strength.</span>
-                  <span className="block text-gradient-gold">Build yourself.</span>
+                  <span className="block text-foreground">Build strength at</span>
+                  <span className="block text-gradient-gold">CK Gym Nalbari</span>
                 </h1>
               </div>
               <div>
