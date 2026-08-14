@@ -160,7 +160,7 @@ function Index() {
 
       <main id="top">
         {/* Hero */}
-        <section className="relative isolate flex h-[100svh] items-center overflow-hidden bg-background pt-16 md:grid md:h-auto md:min-h-[calc(100svh-4rem)] md:grid-cols-2 md:items-start md:pt-24">
+        <section className="relative isolate flex h-[100svh] items-center overflow-hidden bg-background pt-16 md:items-start md:justify-start md:pt-24">
           {/* Mobile background video */}
           <video
             src="/ck-gym-hero-mobile.mp4"
@@ -178,6 +178,24 @@ function Index() {
           {/* Mobile readability scrims */}
           <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/95 via-background/70 to-background/20 md:hidden" />
           <div className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-t from-background to-transparent md:hidden" />
+
+          {/* Desktop background video */}
+          <video
+            src="/ck-gym-hero-mobile.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            poster={heroImage}
+            width={1280}
+            height={720}
+            className="absolute inset-0 -z-10 hidden h-full w-full object-cover md:block"
+            aria-label="Marble Greek god statue holding a back double biceps pose, symbolising strength at CK Gym Nalbari"
+          />
+          {/* Desktop readability scrim — darker where text sits, clearer on the right */}
+          <div className="absolute inset-0 -z-10 hidden bg-gradient-to-r from-background via-background/85 to-background/40 md:block" />
+          <div className="absolute inset-0 -z-10 hidden bg-gradient-to-b from-background/80 via-transparent to-background/60 md:block" />
 
           {/* Content — left on desktop, stacked on mobile */}
           <div className="mx-auto flex h-full w-full max-w-6xl flex-col justify-start px-5 pb-10 pt-16 md:mx-0 md:h-auto md:max-w-none md:justify-start md:px-8 md:pb-0 md:pt-0 lg:px-12">
@@ -208,18 +226,6 @@ function Index() {
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* Desktop hero image — right column */}
-          <div className="relative hidden h-full min-h-[calc(100svh-4rem)] md:block">
-            <img
-              src={heroImage}
-              alt="Marble Greek god statue holding a back double biceps pose, symbolising strength at CK Gym Nalbari"
-              width={1280}
-              height={720}
-              loading="eager"
-              className="h-full w-full object-contain object-center"
-            />
           </div>
         </section>
 
